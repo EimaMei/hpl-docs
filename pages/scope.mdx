@@ -1,0 +1,56 @@
+## Scope
+
+Scopes aren't implemented at all. However, it is a very important type in HOI4 scripting and by default HPL, as the Paradox Wiki describes it, `Scopes select entities in order to check for triggers or apply effects.`.
+
+Essentially, effects that you associate with HOI4 scripting (e.g. `add_stability`) can only be performed in scopes and nowhere else. However HOI4 scripting is the only language we know of that really uses scopes for results, as any other language would just have an `if` statement to check if the option got picked or not.
+
+Scopes work pretty well in HOI4 scripting, however in HPL it's quite an issue for 2 reasons.
+
+1. It makes it unclear when you can use modifiers in HPL code.
+2. Since we're translating HPL scopes to HOI4 scripting scopes, it means that certain HPL features cannot make it into it when writing scopes. This only applies to features that don't have a HOI4 scripting equivalent/cannot be implemented by different ways.
+
+To make things more clear for everyone involved using HPL, we've come up with 2 modes in HPL:
+
+- Regular mode (non-scope mode)
+- HOI4 scripting+ mode (scope mode)
+
+In regular mode it's just HPL, meaning you can use the entire full feature-set of the language anywhere. In HOI4 scripting+ mode, you'll be essentially writing HOI4 scripting code with the available feature-set of HPL in scope mode. Backwards compatibility with regular HOI4 scripting would also be possible.
+
+To come up with the best scope mode implementation, we've come up with 4 guidelines/required features that should be included in the implementation.
+
+1. Syntax should be as simple and C-based as possible (no need to have overcomplicated syntax for something that's simple in HOI4 scripting).
+2. Scope variables should exist for more options, portability, convenience for me to program in and backwards compatibility.
+3. Being able to declare functions with scope required functionality. If such functionality is enabled, then the function will get a bonus variable with the scope variable.
+4. Must be clear when the user is writing code in non-scope or scope mod.
+
+### **Examples of how one of the scope modes could look**
+
+**Function form**
+
+```c
+newOption(someEventVar, "da title") = {
+	addStability("ROOT", 50) // If the AI/player picks this option, it gains 50% stability
+}
+```
+
+**Variable form**
+
+```c
+scope savedCode = {
+	addWarSupport("USA", -10) // Now we can use this scope variable anywhere we want.
+}
+```
+
+**Using both examples in one**
+
+```c
+scope savedCode = {
+	addStability("ROOT", 50)
+	addWarSupport("USA", -10)
+} // Now we can use this scope variable in any scope we want.
+
+newOption(someEventVar, "da title 2") = {
+	savedCode // This gets transformed into actual code when the interpreter reads and transforms it back to HPL and then finally HOI4 code.
+}
+
+```

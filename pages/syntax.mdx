@@ -1,0 +1,25 @@
+## Syntax
+
+The syntax and feature-set of HPL is almost identical to C's, features like structures, static types, declarations etc. are mostly the same.
+
+However there are some additions as well as removals from C to make the language more approachable for HOI4 coders and tailored to HOI4 modding. The main changes are:
+
+- There are no semicolons (`;`)
+- There are HOI4-only types here (main one being `scope`)
+- A variable can be declared dynamically or as a generic.
+
+## Implemented features
+
+A short list of things that are implemented with full functionality:
+
+- Create and edit variables
+- C-based structures (you can access and edit struct members)
+- Declare functions with return types
+- Execute a function and get its return
+- Core functions
+- Python's `f-string`
+- Debug and logging modes
+- Standard libraries for creating HOI4 mods (e.g. `libpdx.hpl`, `libcountry.hpl`)
+- `if` statements
+- Simple math (`++`, `--`, `+=`, `-=`, `=`, `/=`, `%=`)
+- [HOI4 scopes](/scope)
