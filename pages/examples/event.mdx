@@ -6,12 +6,14 @@ Creating a simple HOI4 event.
 #include <libpdx.hpl>
 
 
-newMod("build/output", "Test mod", "1.12.*")
+newMod("build/output", "Test Mod", "1.12.*")
 
 // You have to have an "evil.png" image in the "/res" folder for this to work.
 // You can of course change the path or the name of the file.
-event alithronEvent = newEvent(namespace = "hpl_events", id = 56, description = "Alithron is back", "After 10 years of sufferage, the bri ish man himself Alithron has announced recently that he shall return in the coming weeks, no doubt to cause major tomfoolery and bring back Unser Kampf.", imagePath = "examples/event/res/literal_evil.png")
-newEventOption(e = alithronEvent, title = "Oh no!")
+event alithronEvent = newEvent(namespace = "hpl_events", id = 56, description = "A mysterious message", "This morning at 6:32 am in the morning, we got a mysterious telegram from a high-ranking officer in Germany. They claim that Germany's planning to invade Poland in 2 weeks, however evidence to prove such a thing wasn't revealed.", imagePath = "examples/event/res/literal_evil.png")
+
+newEventOption(alithronEvent, title = "Probably some insane person.")
+newEventOption(alithronEvent, title = "Sound the alarms, time to rearm!")
 
 print(alithronEvent)
 ```
