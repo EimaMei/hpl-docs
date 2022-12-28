@@ -10,10 +10,10 @@ newMod("build/output", "Test Mod", "1.12.*")
 
 // You have to have an "evil.png" image in the "/res" folder for this to work.
 // You can of course change the path or the name of the file.
-event alithronEvent = newEvent(namespace = "hpl_events", id = 56, description = "A mysterious message", "This morning at 6:32 am in the morning, we got a mysterious telegram from a high-ranking officer in Germany. They claim that Germany's planning to invade Poland in 2 weeks, however evidence to prove such a thing wasn't revealed.", imagePath = "examples/event/res/literal_evil.png")
+event e = newEvent(namespace = "hpl_events", id = 56, description = "A mysterious message", "This morning at 6:32 am in the morning, we got a mysterious telegram from a high-ranking officer in Germany. They claim that Germany's planning to invade Poland in 2 weeks, however evidence to prove such a thing wasn't revealed.", imagePath = "examples/event/res/literal_evil.png")
 
-newEventOption(alithronEvent, title = "Probably some insane person.")
-newEventOption(alithronEvent, title = "Sound the alarms, time to rearm!")
+newEventOption(e, title = "Probably some insane person.")
+newEventOption(e, title = "Sound the alarms, time to rearm!")
 
-print(alithronEvent)
+print(e)
 ```
