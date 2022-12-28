@@ -1,0 +1,16 @@
+## Country
+
+Creating a nation using HPL.
+
+```c
+#include <libpdx.hcl>
+
+newMod("build/output", "Test Mod", "1.12.*")
+
+country blr = newCountry("BLR", "White Ruthenia", {143, 143, 143}, 200)
+// country hpl = newCountry(tag = "HPL", "HPL Nation", {200, 23, 210}, 200)
+countrySetPolitics(blr, "neutrality", 25, 25, 25, 25)
+//countrySetMisc(ali, -20, 40, 1)
+
+print(blr)
+```

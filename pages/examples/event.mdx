@@ -1,0 +1,17 @@
+## Event
+
+Creating a simple HOI4 event.
+
+```c
+#include <libpdx.hcl>
+
+newMod("build/output", "Test Mod", "1.12.*")
+
+// You have to have an "evil.png" image in the "/res" folder for this to work.
+// You can of course change the path or the name of the file.
+event v = newEvent("hcl_events", 56, "Bad stuff", "How could this happen.", "/res/evil.png")
+
+print(v)
+
+newEventOption(v, "Oh no!")
+```
