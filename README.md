@@ -1,3 +1,3 @@
 # HPL Docs
 
-Documentation for [HPL](https://github.com/HPL-Lang).
+Documentation for [HPL](https://github.com/EimaMei/HPL).
