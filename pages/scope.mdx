@@ -28,8 +28,8 @@ To come up with the best scope mode implementation, we've come up with 4 guideli
 **Function form**
 
 ```c
-newOption(someEventVar, "da title") = {
-	addStability("ROOT", 50) // If the AI/player picks this option, it gains 50% stability
+newEventOption(e = someEventVar, title = "Quite a good proposal, we shall accept it!") = {
+	addStability("ROOT", 10) // If the AI/player picks this option, it gains 50% stability
 }
 ```
 
@@ -49,7 +49,7 @@ scope savedCode = {
 	addWarSupport("USA", -10)
 } // Now we can use this scope variable in any scope we want.
 
-newOption(someEventVar, "da title 2") = {
+newOption(someEventVar, "Victory against the Americans!") = {
 	savedCode // This gets transformed into actual code when the interpreter reads and transforms it back to HPL and then finally HOI4 code.
 }
 
